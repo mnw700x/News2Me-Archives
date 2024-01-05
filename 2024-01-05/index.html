@@ -11,14 +11,16 @@
         (async () => {
             let parts = location.pathname.split("/");
             let last = parts[parts.length-2];
-            const response = await fetch(`https://api.github.com/repos/mnw700x/News2Me-Archives/contents/${last}`);
+            let reponame = location.pathname.split('/')[1]
+            let username = location.hostname.match(/(.*)\.github\.io/)[1]
+            const response = await fetch(`https://api.github.com/repos/${username}/${reponame}/contents/${last}`);
             const files = await response.json();
             const listElement = document.createElement("ul");
             for (const file of files) {
                 if (file.name != "index.html") {
                     const itemElement = document.createElement("li");
                     const linkElement = document.createElement("a");
-                    linkElement.href = (`https://${location.hostname}/News2Me-Archives/${file.path}`);
+                    linkElement.href = (`https://${location.hostname}/${reponame}/${file.path}`);
                     linkElement.textContent = file.name;
                     linkElement.target = "_blank";
                     itemElement.appendChild(linkElement);
