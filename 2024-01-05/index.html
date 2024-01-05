@@ -9,7 +9,6 @@
 <body>
     <script>
         (async () => {
-            https://api.github.com/repos/{owner}/{repo}/contents/{path}
             const response = await fetch(`https://api.github.com/repos/${location.hostname.match(/(.*)\.github\.io/)[1]}${location.pathname.match(/\/.*\//)[0]}contents/${location.pathname}`);
             const files = await response.json();
             const listElement = document.createElement("ul");
