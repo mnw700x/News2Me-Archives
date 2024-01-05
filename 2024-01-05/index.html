@@ -12,7 +12,9 @@
             #https://api.github.com/repos/mnw700x/News2Me-Archives/contents/2024-01-05
             #https://api.github.com/repos/mnw700x/News2Me-Archives/2024-01-05/contents//News2Me-Archives/2024-01-05/
             #https://api.github.com/repos/{owner}/{repo}/contents/{path}
-            const response = await fetch(`https://api.github.com/repos/mnw700x/News2Me-Archives/2024-01-05`);
+            let parts = location.path.split("/");
+            let last = parts[parts.length-1];
+            const response = await fetch(`https://api.github.com/repos/mnw700x/News2Me-Archives/contents/${last}`);
             const files = await response.json();
             const listElement = document.createElement("ul");
             for (const file of files) {
