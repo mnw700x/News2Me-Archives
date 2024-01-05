@@ -18,7 +18,7 @@
                 if (file.name != "index.html") {
                     const itemElement = document.createElement("li");
                     const linkElement = document.createElement("a");
-                    linkElement.href = file.path;
+                    linkElement.href = (`https://${location.hostname}/News2Me-Archives/${file.path}`);
                     linkElement.textContent = file.name;
                     linkElement.target = "_blank";
                     itemElement.appendChild(linkElement);
