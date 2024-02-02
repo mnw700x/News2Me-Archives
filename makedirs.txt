@@ -1,0 +1,10 @@
+mkdir -p {01,03,05,07,08,10,12}/{01..31} 02/{01..28} {04,06,09,11}/{01..30}
+
+mkdir -p {March,May,July,Aug,Oct,Dec}/{01..31} 
+mkdir -p Feb/{01..28}
+mkdir -p {April,June,Sept,Nov}/{01..30}
+
+
+echo {March,May,July,Aug,Oct,Dec}/{01..31} | xargs -n 1 cp ../2024-01-08/index.html
+echo Feb/{01..28} | xargs -n 1 cp ../2024-01-08/index.html
+echo {April,June,Sept,Nov}/{01..30} | xargs -n 1 cp ../2024-01-08/index.html
